@@ -1,6 +1,6 @@
-/* =====================================================
+/* ======================================================
    CONFIGURACIÓN GENERAL
-   ===================================================== */
+   ====================================================== */
 
 * {
   margin: 0;
@@ -18,1196 +18,799 @@ html {
 body {
   width: 100%;
   max-width: 100%;
+  min-width: 0;
   overflow-x: hidden;
+
   font-family: Georgia, 'Times New Roman', serif;
+
   background: #000;
   color: #222;
+
   line-height: 1.8;
 }
 
-/* =====================================================
+/* ======================================================
    PORTADA
-   ===================================================== */
+   ====================================================== */
 
 .portada {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   width: 100%;
   max-width: 100%;
+
   min-height: 100vh;
   min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px;
-  position: relative;
+
+  padding: 40px 20px 60px;
+
   overflow: hidden;
+
+  text-align: center;
+
   color: #fff;
+
   background: radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 255, 255, 0.06),
-      transparent 25%
+      circle at 50% 35%,
+      rgba(255, 255, 255, 0.07),
+      transparent 35%
     ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 255, 255, 0.04),
-      transparent 30%
-    ),
-    linear-gradient(135deg, #030303 0%, #0b0b0b 50%, #020202 100%);
+    linear-gradient(180deg, #050505 0%, #000 100%);
+
   isolation: isolate;
 }
 
-/* =====================================================
-   TEXTURA
-   ===================================================== */
-
 .portada::before {
   content: '';
+
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    115deg,
-    transparent 0px,
-    transparent 7px,
-    rgba(255, 255, 255, 0.015) 8px,
-    transparent 9px
-  );
-  opacity: 0.5;
-  pointer-events: none;
-}
 
-/* =====================================================
-   BRILLO
-   ===================================================== */
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.015) 0,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+
+  pointer-events: none;
+
+  z-index: -1;
+}
 
 .portada::after {
   content: '';
+
   position: absolute;
+
   width: 450px;
   height: 450px;
-  top: 50%;
+
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
+  transform: translateX(-50%);
+
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.035),
+    rgba(255, 255, 255, 0.06),
     transparent 70%
   );
-  filter: blur(30px);
+
+  filter: blur(20px);
+
   pointer-events: none;
-  z-index: 0;
+
+  z-index: -1;
 }
 
-/* =====================================================
-   CONTENIDO
-   ===================================================== */
+/* ======================================================
+   CONTENIDO DE LA PORTADA
+   ====================================================== */
 
 .portada-contenido {
   position: relative;
-  z-index: 5;
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   width: 100%;
-  max-width: 700px;
-  animation: aparecerPortada 2s ease forwards;
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 0;
+
+  padding: 100px 20px 60px;
 }
 
-.portada-contenido::before {
-  content: '';
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.045) 0%,
-    rgba(255, 255, 255, 0.018) 35%,
-    transparent 70%
-  );
-  filter: blur(20px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* =====================================================
-   FRASE
-   ===================================================== */
-
-.pequena-frase {
-  font-size: 0.9rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: aparecerSuave 1.5s ease 0.2s forwards;
-}
-
-/* =====================================================
+/* ======================================================
    NOMBRE
-   ===================================================== */
+   ====================================================== */
 
 .portada h1 {
   width: 100%;
+  max-width: 100%;
+
+  margin: 0 auto 22px;
+
   font-family: Arial, Helvetica, sans-serif;
+
   font-size: clamp(3.5rem, 12vw, 7rem);
+
   font-weight: 800;
+
   letter-spacing: 8px;
+
   line-height: 1.05;
+
   color: #f5f5f5;
-  margin-bottom: 22px;
-  text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.08),
-    0 0 40px rgba(255, 255, 255, 0.06), 0 0 80px rgba(255, 255, 255, 0.025);
-  opacity: 0;
-  animation: aparecerNombre 2.2s ease 0.4s forwards;
+
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(255, 255, 255, 0.08);
+
+  overflow-wrap: anywhere;
 }
 
-.portada h1::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 1px;
-  margin: 18px auto 0;
-  background: rgba(255, 255, 255, 0.35);
-  animation: lineaNombre 1.8s ease 1.5s forwards;
-}
-
-/* =====================================================
+/* ======================================================
    SUBTÍTULO
-   ===================================================== */
+   ====================================================== */
 
 .subtitulo {
+  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto 38px;
+
   font-size: 1.2rem;
+
+  line-height: 1.6;
+
   color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 38px;
-  opacity: 0;
-  animation: aparecerSuave 1.5s ease 1s forwards;
+
+  overflow-wrap: anywhere;
 }
 
-/* =====================================================
+/* ======================================================
    BOTONES DE LA PORTADA
-   ===================================================== */
+   ====================================================== */
 
 .botones-portada {
   display: flex;
+
   flex-direction: column;
   align-items: center;
+
   gap: 14px;
+
   width: 100%;
+
+  margin-bottom: 30px;
 }
 
 .botones-portada button {
-  width: auto;
-  min-width: 230px;
-}
-
-/* =====================================================
-   ESTILO GENERAL DE BOTONES
-   ===================================================== */
-
-.boton-carta,
-.boton-peliculas,
-.volver-portada {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 14px 28px;
-  border-radius: 50px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
-    inset 0 0 15px rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* =====================================================
-   BRILLO DEL BOTÓN PRINCIPAL
-   ===================================================== */
-
-.boton-carta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
-  transform: skewX(-20deg);
-  animation: brilloBoton 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* =====================================================
-   HOVER DE LOS BOTONES
-   ===================================================== */
-
-.boton-carta:hover,
-.boton-peliculas:hover,
-.volver-portada:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.38);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.06),
-    0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* =====================================================
-   ACTIVE
-   ===================================================== */
-
-.boton-carta:active,
-.boton-peliculas:active,
-.volver-portada:active {
-  transform: scale(0.97);
-}
-
-/* =====================================================
-   CARTA
-   ===================================================== */
-
-.carta-seccion {
-  display: none;
   width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-  padding: 60px 20px;
-  background: radial-gradient(
-      circle at top,
-      rgba(255, 255, 255, 0.04),
-      transparent 30%
-    ),
-    #050505;
-}
+  max-width: 250px;
 
-.portada-saliendo {
-  animation: desaparecerPortada 0.9s ease forwards;
-}
-
-.carta-seccion.carta-apareciendo {
-  display: block;
-  animation: aparecerCarta 2.5s ease forwards;
-}
-
-.carta-seccion.carta-apareciendo .carta {
-  animation: aparecerHoja 2.5s ease forwards;
-}
-
-/* =====================================================
-   HOJA
-   ===================================================== */
-
-.carta {
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 70px 75px;
-  background: #f6eddf;
-  color: #302b27;
-  border-radius: 4px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-  position: relative;
-  overflow: hidden;
-}
-
-.carta::before {
-  content: '✦';
-  display: block;
-  text-align: center;
-  font-size: 24px;
-  color: #55504a;
-  margin-bottom: 25px;
-}
-
-.carta h2 {
-  text-align: center;
-  color: #292622;
-  font-size: 2.7rem;
-  font-weight: normal;
-  margin-bottom: 45px;
-  line-height: 1.3;
-}
-
-.carta h3 {
-  text-align: center;
-  color: #38332e;
-  font-size: 1.7rem;
-  font-weight: normal;
-  margin-top: 65px;
-  margin-bottom: 30px;
-  line-height: 1.4;
-}
-
-.carta p {
-  width: 100%;
-  max-width: 100%;
-  font-size: 1.08rem;
-  margin-bottom: 20px;
-  text-align: left;
-  overflow-wrap: break-word;
-}
-
-.carta p.frase-especial {
-  text-align: center;
-  font-size: 1.5rem;
-  color: #292622;
-  font-weight: bold;
-  margin: 35px 0;
-}
-
-.carta .nombre-final {
-  text-align: center;
-  font-size: 2rem;
-  color: #292622;
-  margin: 50px 0 35px;
-  font-weight: bold;
-}
-
-/* =====================================================
-   BOTÓN VOLVER
-   ===================================================== */
-
-.volver-portada {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  width: fit-content;
-  min-width: 150px;
-  margin: 50px auto 0;
-  padding: 14px 28px;
-  text-align: center;
-  border: 1px solid rgba(80, 80, 80, 0.8);
-  border-radius: 50px;
-  background: linear-gradient(145deg, #2b2b2b, #151515);
-  color: #e5e5e5;
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45),
-    inset 0 0 15px rgba(255, 255, 255, 0.025);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.volver-portada::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
-  transform: skewX(-20deg);
-  animation: brilloBoton 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.volver-portada:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(145deg, #3a3a3a, #202020);
-  border-color: rgba(150, 150, 150, 0.65);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(255, 255, 255, 0.05);
-}
-
-.volver-portada:active {
-  transform: scale(0.97);
-}
-
-/* =====================================================
-   FINAL
-   ===================================================== */
-
-.final-carta {
-  margin-top: 70px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(60, 55, 50, 0.2);
-}
-
-.cumple-final {
-  width: 100%;
-  max-width: 100%;
-  margin-top: 60px;
-  padding: 45px 30px;
-  text-align: center;
-  background: #eee2d0;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.cumple-final p {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.cumple-final .ultima-frase {
-  margin-top: 25px;
-  font-size: 1.35rem;
-  color: #292622;
-  font-weight: bold;
-}
-
-.te-amo-final {
-  margin-top: 40px !important;
-  font-size: 1.8rem !important;
-  color: #292622;
-  font-weight: bold;
-}
-
-.firma-final {
-  margin-top: 45px !important;
-  text-align: center !important;
-  line-height: 2;
-  font-size: 1.1rem !important;
-}
-
-.firma-final strong {
-  font-size: 1.5rem;
-}
-
-.firma-final em {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 1.1rem;
-}
-
-/* =====================================================
-   ANIMACIONES
-   ===================================================== */
-
-@keyframes aparecerPortada {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes aparecerSuave {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes aparecerNombre {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes guitarraMovimiento {
-  0% {
-    transform: rotate(-12deg) translateY(0);
-  }
-  50% {
-    transform: rotate(-10deg) translateY(-8px);
-  }
-  100% {
-    transform: rotate(-12deg) translateY(0);
-  }
-}
-
-@keyframes lineaNombre {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 110px;
-    opacity: 1;
-  }
-}
-
-@keyframes brilloBoton {
-  0% {
-    left: -120%;
-  }
-  35% {
-    left: 140%;
-  }
-  100% {
-    left: 140%;
-  }
-}
-
-@keyframes desaparecerPortada {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.025);
-  }
-}
-
-@keyframes aparecerCarta {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes aparecerHoja {
-  0% {
-    opacity: 0;
-    transform: translateY(25px) scale(0.985);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* =====================================================
-   BOTÓN PELÍCULAS
-   ===================================================== */
-
-.boton-peliculas {
-  min-width: 230px;
-}
-
-/* =====================================================
-   SECCIÓN PELÍCULAS
-   ===================================================== */
-
-.peliculas-seccion {
-  display: none;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-  padding: 60px 20px;
-  background: radial-gradient(
-      circle at top,
-      rgba(255, 255, 255, 0.04),
-      transparent 30%
-    ),
-    #050505;
-  color: #fff;
-}
-
-.peliculas-contenido {
-  width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
-  text-align: center;
-  animation: aparecerPeliculas 1.8s ease forwards;
-}
-
-.peliculas-contenido h2 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: normal;
-  line-height: 1.3;
-  margin-bottom: 40px;
-  color: #f5f5f5;
-}
-
-/* =====================================================
-   LISTA DE PELÍCULAS
-   ===================================================== */
-
-.peliculas-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 100%;
-  text-align: left;
-}
-
-/* =====================================================
-   TARJETA DE PELÍCULA
-   ===================================================== */
-
-.pelicula {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.035);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
-}
-
-.pelicula:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* =====================================================
-   FOTO / POSTER
-   ===================================================== */
-
-.pelicula-foto {
-  width: 110px;
-  height: 155px;
-  min-width: 110px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #181818;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
-}
-
-.pelicula-foto img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-/* =====================================================
-   INFORMACIÓN DE LA PELÍCULA
-   ===================================================== */
-
-.pelicula-info {
-  flex: 1;
   min-width: 0;
 }
 
-.pelicula-info h3 {
-  margin: 0;
-  color: #f5f5f5;
-  font-size: 1.25rem;
-  font-weight: normal;
-  line-height: 1.4;
-  overflow-wrap: break-word;
-  word-break: normal;
+/* ======================================================
+   BOTONES GENERALES
+   ====================================================== */
+
+.boton-carta,
+.boton-peliculas,
+.boton-audio,
+.boton-canciones,
+.volver-portada {
+  position: relative;
+
+  display: inline-block;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: rgba(255, 255, 255, 0.9);
+
+  padding: 14px 28px;
+
+  font-family: inherit;
+
+  font-size: 0.95rem;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
-/* =====================================================
-   ANIMACIÓN PELÍCULAS
-   ===================================================== */
+/* ======================================================
+   BRILLO DE LOS BOTONES
+   ====================================================== */
 
-@keyframes aparecerPeliculas {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.boton-carta::before,
+.boton-peliculas::before,
+.boton-audio::before,
+.boton-canciones::before,
+.volver-portada::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: brilloBoton 5s ease-in-out infinite;
 }
 
-/* =====================================================
-   CELULAR
-   ===================================================== */
+/* ======================================================
+   HOVER DE LOS BOTONES
+   ====================================================== */
 
-@media (max-width: 700px) {
-  .portada {
-    width: 100%;
-    min-height: 100svh;
-    padding: 25px 18px;
-    overflow: hidden;
-  }
+.boton-carta:hover,
+.boton-peliculas:hover,
+.boton-audio:hover,
+.boton-canciones:hover {
+  transform: translateY(-2px);
 
-  .portada-contenido {
-    width: 100%;
-    max-width: 100%;
-    padding: 20px 0;
-  }
+  background: rgba(255, 255, 255, 0.1);
 
-  .portada-contenido::before {
-    width: 280px;
-    height: 280px;
-  }
-
-  .pequena-frase {
-    width: 100%;
-    font-size: 0.68rem;
-    letter-spacing: 2.8px;
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-
-  .portada h1 {
-    width: 100%;
-    max-width: 100%;
-    font-size: clamp(2.35rem, 12vw, 3.6rem);
-    letter-spacing: 2px;
-    line-height: 1.05;
-    margin-bottom: 20px;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal;
-  }
-
-  .portada h1::after {
-    margin-top: 13px;
-  }
-
-  .subtitulo {
-    width: 100%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    font-size: 0.98rem;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .botones-portada {
-    width: 100%;
-    gap: 11px;
-  }
-
-  .botones-portada button {
-    width: 100%;
-    max-width: 250px;
-    min-width: 0;
-  }
-
-  .boton-carta,
-  .boton-peliculas {
-    width: 100%;
-    max-width: 250px;
-    min-height: 50px;
-    padding: 13px 22px;
-    font-size: 0.9rem;
-  }
-
-  /* =====================================================
-     CARTA
-     ===================================================== */
-
-  .carta-seccion {
-    width: 100%;
-    max-width: 100%;
-    padding: 16px 10px 30px;
-    overflow-x: hidden;
-  }
-
-  .carta-seccion.carta-apareciendo {
-    display: block;
-    animation: aparecerCarta 2.2s ease forwards;
-  }
-
-  .carta {
-    width: 100%;
-    max-width: 100%;
-    padding: 42px 22px 50px;
-    border-radius: 4px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-    overflow: hidden;
-  }
-
-  .carta::before {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .carta h2 {
-    font-size: 1.85rem;
-    line-height: 1.3;
-    margin-bottom: 32px;
-  }
-
-  .carta h3 {
-    font-size: 1.35rem;
-    line-height: 1.45;
-    margin-top: 48px;
-    margin-bottom: 22px;
-    padding: 0 5px;
-  }
-
-  .carta p {
-    width: 100%;
-    max-width: 100%;
-    font-size: 1rem;
-    line-height: 1.85;
-    margin-bottom: 18px;
-    text-align: left;
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
-
-  .carta p.frase-especial {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin: 30px 5px;
-  }
-
-  .carta .nombre-final {
-    font-size: 1.65rem;
-    line-height: 1.4;
-    margin: 42px 0 30px;
-  }
-
-  .volver-portada {
-    margin-top: 42px;
-    margin-bottom: 5px;
-    min-width: 150px;
-    min-height: 50px;
-    padding: 13px 24px;
-    background: linear-gradient(145deg, #2b2b2b, #151515);
-    border-color: rgba(80, 80, 80, 0.8);
-    color: #e5e5e5;
-  }
-
-  .cumple-final {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 45px;
-    padding: 32px 18px;
-    border-radius: 9px;
-    overflow: hidden;
-  }
-
-  .cumple-final p {
-    font-size: 0.98rem;
-    line-height: 1.75;
-    margin-bottom: 10px;
-  }
-
-  .cumple-final .ultima-frase {
-    margin-top: 22px;
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
-
-  .te-amo-final {
-    margin-top: 32px !important;
-    font-size: 1.55rem !important;
-    line-height: 1.4;
-  }
-
-  .firma-final {
-    margin-top: 38px !important;
-    font-size: 1rem !important;
-    line-height: 1.9;
-  }
-
-  .firma-final strong {
-    font-size: 1.35rem;
-  }
-
-  .firma-final em {
-    margin-top: 6px;
-    font-size: 1rem;
-  }
-
-  /* =====================================================
-     PELÍCULAS
-     ===================================================== */
-
-  .peliculas-seccion {
-    width: 100%;
-    max-width: 100%;
-    padding: 45px 12px 35px;
-    overflow-x: hidden;
-  }
-
-  .peliculas-contenido {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .peliculas-contenido h2 {
-    font-size: 1.9rem;
-    margin-bottom: 32px;
-  }
-
-  .peliculas-lista {
-    width: 100%;
-    gap: 14px;
-  }
-
-  .pelicula {
-    width: 100%;
-    max-width: 100%;
-    gap: 14px;
-    padding: 14px;
-    border-radius: 10px;
-  }
-
-  .pelicula-foto {
-    width: 78px;
-    height: 112px;
-    min-width: 78px;
-    max-width: 78px;
-    border-radius: 7px;
-  }
-
-  .pelicula-info {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .pelicula-info h3 {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* =====================================================
-   CELULARES MUY PEQUEÑOS
-   ===================================================== */
-
-@media (max-width: 380px) {
-  .portada {
-    padding: 20px 14px;
-  }
-
-  .portada-contenido {
-    max-width: 100%;
-    padding: 15px 0;
-  }
-
-  .pequena-frase {
-    font-size: 0.62rem;
-    letter-spacing: 2.4px;
-    margin-bottom: 15px;
-  }
-
-  .portada h1 {
-    font-size: 2.35rem;
-    letter-spacing: 1.5px;
-    line-height: 1.05;
-    margin-bottom: 18px;
-  }
-
-  .portada h1::after {
-    margin-top: 12px;
-  }
-
-  .subtitulo {
-    font-size: 0.88rem;
-    max-width: 250px;
-    line-height: 1.6;
-    margin-bottom: 27px;
-  }
-
-  .botones-portada {
-    gap: 10px;
-  }
-
-  .botones-portada button {
-    width: 100%;
-    max-width: 225px;
-  }
-
-  .boton-carta,
-  .boton-peliculas {
-    min-height: 48px;
-    padding: 12px 20px;
-    font-size: 0.86rem;
-  }
-
-  .volver-portada {
-    min-width: 140px;
-    padding: 12px 22px;
-    font-size: 0.88rem;
-    background: linear-gradient(145deg, #2b2b2b, #151515);
-    color: #e5e5e5;
-  }
-
-  .carta-seccion {
-    padding: 12px 7px 25px;
-  }
-
-  .carta {
-    padding: 38px 19px 45px;
-  }
-
-  .carta h2 {
-    font-size: 1.7rem;
-  }
-
-  .carta h3 {
-    font-size: 1.25rem;
-    margin-top: 43px;
-  }
-
-  .carta p {
-    font-size: 0.96rem;
-    line-height: 1.8;
-  }
-
-  .carta p.frase-especial {
-    font-size: 1.15rem;
-  }
-
-  .carta .nombre-final {
-    font-size: 1.5rem;
-  }
-
-  .cumple-final {
-    padding: 28px 15px;
-  }
-
-  .cumple-final p {
-    font-size: 0.94rem;
-  }
-
-  .cumple-final .ultima-frase {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-
-  .te-amo-final {
-    font-size: 1.4rem !important;
-  }
-
-  /* =====================================================
-     PELÍCULAS MUY PEQUEÑAS
-     ===================================================== */
-
-  .peliculas-seccion {
-    padding: 38px 10px 28px;
-  }
-
-  .peliculas-contenido h2 {
-    font-size: 1.75rem;
-  }
-
-  .pelicula {
-    gap: 12px;
-    padding: 12px;
-  }
-
-  .pelicula-foto {
-    width: 70px;
-    height: 100px;
-    min-width: 70px;
-    max-width: 70px;
-  }
-
-  .pelicula-info h3 {
-    font-size: 0.95rem;
-  }
+.boton-carta:active,
+.boton-peliculas:active,
+.boton-audio:active,
+.boton-canciones:active {
+  transform: translateY(0);
 }
 
-/* =====================================================
-   REDUCCIÓN DE MOVIMIENTO
-   ===================================================== */
+/* ======================================================
+   VIDEO DE LA PORTADA
+   ====================================================== */
 
-@media (prefers-reduced-motion: reduce) {
-  .portada,
-  .carta-seccion,
-  .carta,
-  .portada h1::after,
-  .boton-carta::before,
-  .volver-portada::before {
-    animation: none !important;
-    transition: none !important;
-  }
+.video-fondo-portada {
+  order: 2;
 
-  .carta-seccion.carta-apareciendo {
-    display: block;
-    opacity: 1;
-    transform: none;
-  }
+  position: relative;
+
+  z-index: 30;
+
+  display: block;
+
+  width: 100%;
+  max-width: 700px;
+
+  aspect-ratio: 16 / 9;
+
+  margin: 35px auto 0;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+
+  background: #050505;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.03);
 }
-/* =====================================================
-   ESTILO DE LAS PELÍCULAS
-   ===================================================== */
 
-.peliculas-lista {
+/* ======================================================
+   BOTÓN DE SONIDO
+   ====================================================== */
+
+.boton-sonido {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 50;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: #fff;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.boton-sonido:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: rgba(255, 255, 255, 0.4);
+
+  transform: scale(1.08);
+}
+
+.boton-sonido:active {
+  transform: scale(0.95);
+}
+
+/* ======================================================
+   CARTA
+   ====================================================== */
+
+.carta-seccion {
+  display: none;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100vh;
+
+  padding: 60px 20px;
+
+  overflow-x: hidden;
+
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.04),
+      transparent 35%
+    ),
+    #050505;
+}
+
+/* ======================================================
+   DISEÑO PRINCIPAL DE LA CARTA
+   ====================================================== */
+
+.carta {
+  position: relative;
+
   width: 100%;
   max-width: 850px;
+
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+  padding: 75px 80px;
+
+  background: radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 255, 255, 0.45),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #f8f0e3 0%, #eee1cf 100%);
+
+  color: #302b27;
+
+  border: 1px solid rgba(48, 43, 39, 0.18);
+
+  border-radius: 6px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65),
+    0 0 0 8px rgba(255, 255, 255, 0.02);
+
+  overflow: hidden;
 }
 
-.pelicula {
+/* ======================================================
+   BORDE INTERIOR DE LA CARTA
+   ====================================================== */
+
+.carta::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 18px;
+
+  border: 1px solid rgba(48, 43, 39, 0.13);
+
+  pointer-events: none;
+}
+
+/* ======================================================
+   DETALLE SUPERIOR DE LA CARTA
+   ====================================================== */
+
+.carta::before {
+  content: '✦';
+
+  position: absolute;
+
+  top: 25px;
+  right: 35px;
+
+  font-size: 1.4rem;
+
+  color: rgba(48, 43, 39, 0.25);
+
+  z-index: 2;
+}
+
+/* ======================================================
+   TÍTULO DE LA CARTA
+   ====================================================== */
+
+.carta h2 {
+  position: relative;
+
+  margin-bottom: 45px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+
+  font-weight: normal;
+
+  line-height: 1.2;
+
+  text-align: center;
+
+  color: #302b27;
+
+  letter-spacing: 1px;
+}
+
+/* ======================================================
+   DETALLE DEBAJO DEL TÍTULO
+   ====================================================== */
+
+.carta h2::after {
+  content: '♡';
+
+  display: block;
+
   width: 100%;
+
+  margin-top: 15px;
+
+  font-size: 1.3rem;
+
+  color: rgba(48, 43, 39, 0.45);
+}
+
+/* ======================================================
+   SUBTÍTULOS DE LA CARTA
+   ====================================================== */
+
+.carta h3 {
+  position: relative;
+
+  margin: 38px 0 15px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+
+  font-size: 1.2rem;
+
+  font-weight: normal;
+
+  color: #302b27;
+
+  letter-spacing: 0.3px;
+}
+
+/* ======================================================
+   TEXTO DE LA CARTA
+   ====================================================== */
+
+.carta p {
+  margin-bottom: 22px;
+
+  font-size: 1.05rem;
+
+  line-height: 1.9;
+
+  text-align: left;
+
+  color: #3c3530;
+}
+
+/* ======================================================
+   FRASES ESPECIALES
+   ====================================================== */
+
+.carta p.frase-especial {
+  position: relative;
+
+  max-width: 700px;
+
+  margin: 42px auto;
+
+  padding: 25px 30px;
+
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+
+  font-style: italic;
+
+  text-align: center;
+
+  color: #514942;
+
+  border-top: 1px solid rgba(48, 43, 39, 0.15);
+
+  border-bottom: 1px solid rgba(48, 43, 39, 0.15);
+}
+
+/* ======================================================
+   NOMBRE FINAL
+   ====================================================== */
+
+.nombre-final {
+  margin-top: 45px;
+
+  font-size: 1.6rem;
+
+  text-align: center;
+
+  color: #302b27;
+}
+
+/* ======================================================
+   FINAL DE LA CARTA
+   ====================================================== */
+
+.final-carta {
+  margin-top: 45px;
+
+  text-align: center;
+}
+
+.cumple-final {
+  margin-top: 40px;
+}
+
+.cumple-final p {
+  margin-bottom: 12px;
+
+  text-align: center;
+}
+
+.cumple-final .ultima-frase {
+  margin-top: 30px;
+
+  font-size: 1.25rem;
+
+  font-style: italic;
+}
+
+.te-amo-final {
+  margin: 30px 0;
+
+  font-size: 1.7rem;
+
+  font-weight: bold;
+
+  text-align: center;
+}
+
+.firma-final {
+  margin-top: 40px;
+
+  font-size: 1.1rem;
+
+  text-align: center;
+}
+
+.firma-final strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 1.4rem;
+}
+
+.firma-final em {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 0.95rem;
+}
+
+/* ======================================================
+   BOTÓN VOLVER
+   ====================================================== */
+
+/*
+   Este botón está dentro de la carta,
+   por eso lo hacemos oscuro para que
+   contraste con el fondo crema.
+*/
+
+.carta-seccion .volver-portada {
+  display: block;
+
+  width: fit-content;
+
+  min-width: 150px;
+
+  margin: 50px auto 0;
+
+  padding: 14px 28px;
+
+  background: #111 !important;
+
+  color: #fff !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+  border-radius: 50px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.carta-seccion .volver-portada:hover {
+  background: #1c1c1c !important;
+
+  color: #fff !important;
+
+  border-color: rgba(255, 255, 255, 0.35) !important;
+
+  transform: translateY(-2px);
+}
+
+.carta-seccion .volver-portada:active {
+  background: #0a0a0a !important;
+
+  transform: translateY(0);
+}
+
+/* ======================================================
+   PELÍCULAS
+   ====================================================== */
+
+.peliculas-seccion {
+  display: none;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100vh;
+
+  padding: 60px 20px;
+
+  overflow-x: hidden;
+
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.04),
+      transparent 35%
+    ),
+    #050505;
+
+  color: #fff;
+}
+
+.peliculas-lista {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+/* ======================================================
+   TARJETA DE PELÍCULA
+   ====================================================== */
+
+.pelicula {
   display: flex;
+
   align-items: center;
-  gap: 22px;
-  padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
+
+  width: 100%;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
   background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.055),
+    135deg,
+    rgba(255, 255, 255, 0.06),
     rgba(255, 255, 255, 0.025)
   );
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35),
-    inset 0 0 20px rgba(255, 255, 255, 0.015);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease,
-    box-shadow 0.3s ease;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pelicula:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.22);
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.075),
-    rgba(255, 255, 255, 0.035)
-  );
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.45),
-    0 0 20px rgba(255, 255, 255, 0.03);
+
+  background: rgba(255, 255, 255, 0.07);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* =====================================================
-   POSTER
-   ===================================================== */
+/* ======================================================
+   IMAGEN DE PELÍCULA
+   ====================================================== */
 
 .pelicula-foto {
-  width: 110px;
-  height: 155px;
-  min-width: 110px;
   flex-shrink: 0;
+
+  width: 100px;
+  height: 150px;
+
   overflow: hidden;
-  border-radius: 9px;
+
+  border-radius: 10px 0 0 10px;
+
   background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
 
 .pelicula-foto img {
   display: block;
+
   width: 100%;
   height: 100%;
-  max-width: 100%;
+
   object-fit: cover;
+
+  object-position: center;
+
   transition: transform 0.4s ease;
 }
 
@@ -1215,108 +818,711 @@ body {
   transform: scale(1.04);
 }
 
-/* =====================================================
-   NOMBRE
-   ===================================================== */
+/* ======================================================
+   NOMBRE DE LA PELÍCULA
+   ====================================================== */
 
 .pelicula-info {
   flex: 1;
+
   min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+
+  text-align: center;
 }
 
 .pelicula-info h3 {
   margin: 0;
-  color: #f2f2f2;
-  font-size: 1.35rem;
-  font-weight: normal;
-  line-height: 1.4;
-  overflow-wrap: break-word;
+
+  font-size: 1rem;
+
+  line-height: 1.45;
+
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* =====================================================
-   CELULAR
-   ===================================================== */
+/* ======================================================
+   CANCIONES
+   ====================================================== */
+
+.canciones-seccion {
+  display: none;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 100vh;
+
+  padding: 60px 20px;
+
+  overflow-x: hidden;
+
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.04),
+      transparent 35%
+    ),
+    #050505;
+
+  color: #fff;
+}
+
+.canciones-lista {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.cancion {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  width: 100%;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  text-align: left;
+
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cancion:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.cancion-icono {
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  font-size: 1.4rem;
+}
+
+.cancion-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.cancion-info h3 {
+  margin-bottom: 4px;
+
+  font-size: 1.05rem;
+}
+
+.cancion-info p {
+  font-size: 0.9rem;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ======================================================
+   BOTÓN SPOTIFY
+   ====================================================== */
+
+.boton-spotify {
+  flex-shrink: 0;
+
+  display: inline-block;
+
+  padding: 9px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #fff;
+
+  font-size: 0.85rem;
+
+  text-decoration: none;
+
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.boton-spotify:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  transform: translateY(-2px);
+}
+
+.boton-spotify:active {
+  transform: translateY(0);
+}
+
+/* ======================================================
+   VIDEO DE CANCIÓN
+   ====================================================== */
+
+.cancion-video {
+  width: 100%;
+
+  margin-top: 10px;
+}
+
+.video-cancion {
+  display: block;
+
+  width: 100%;
+  max-width: 650px;
+
+  aspect-ratio: 16 / 9;
+
+  margin: 10px auto 0;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  background: #050505;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ======================================================
+   AUDIO
+   ====================================================== */
+
+.audio-seccion {
+  display: none;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding: 30px 20px;
+
+  background: radial-gradient(
+    circle at center,
+    #1a1a1a 0%,
+    #050505 55%,
+    #000 100%
+  );
+
+  color: #fff;
+}
+
+.audio-contenido {
+  width: 100%;
+
+  max-width: 600px;
+
+  min-height: 85vh;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 35px;
+}
+
+/* ======================================================
+   TARJETA DEL AUDIO
+   ====================================================== */
+
+.audio-reproductor {
+  width: 100%;
+
+  max-width: 500px;
+
+  padding: 35px 25px;
+
+  background: rgba(20, 20, 20, 0.85);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 22px;
+
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.06), 0 15px 40px rgba(0, 0, 0, 0.7);
+
+  backdrop-filter: blur(10px);
+
+  position: relative;
+}
+
+/* ======================================================
+   DETALLE DECORATIVO DEL AUDIO
+   ====================================================== */
+
+.audio-reproductor::before {
+  content: '🎧';
+
+  position: absolute;
+
+  top: -25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #0b0b0b;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 50%;
+
+  font-size: 23px;
+
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* ======================================================
+   REPRODUCTOR
+   ====================================================== */
+
+.audio-reproductor audio {
+  width: 100%;
+
+  height: 50px;
+
+  display: block;
+
+  border-radius: 12px;
+}
+
+/* ======================================================
+   ANIMACIÓN DE BOTONES
+   ====================================================== */
+
+@keyframes brilloBoton {
+  0%,
+  70%,
+  100% {
+    left: -100%;
+  }
+
+  85% {
+    left: 140%;
+  }
+}
+
+/* ======================================================
+   TABLET / CELULAR
+   ====================================================== */
 
 @media (max-width: 700px) {
-  .peliculas-lista {
+  .portada {
+    padding: 35px 18px 45px;
+  }
+
+  .portada-contenido {
+    padding: 70px 15px 40px;
+  }
+
+  .portada::after {
+    width: 280px;
+    height: 280px;
+  }
+
+  .portada h1 {
+    font-size: clamp(3rem, 16vw, 5rem);
+
+    letter-spacing: 5px;
+  }
+
+  .subtitulo {
+    max-width: 90%;
+
+    margin-bottom: 30px;
+
+    font-size: 1.05rem;
+  }
+
+  .botones-portada {
+    gap: 12px;
+  }
+
+  .botones-portada button {
+    max-width: 280px;
+  }
+
+  .video-fondo-portada {
     width: 100%;
-    gap: 15px;
+
+    max-width: 100%;
+
+    margin-top: 25px;
+
+    border-radius: 10px;
+  }
+
+  /* ====================================================
+     SECCIONES EN CELULAR
+     ==================================================== */
+
+  .carta-seccion,
+  .peliculas-seccion,
+  .canciones-seccion,
+  .audio-seccion {
+    padding: 40px 15px;
+  }
+
+  /* ====================================================
+     CARTA EN CELULAR
+     ==================================================== */
+
+  .carta {
+    padding: 55px 25px;
+
+    border-radius: 5px;
+  }
+
+  .carta::after {
+    inset: 12px;
+  }
+
+  .carta h2 {
+    margin-bottom: 38px;
+
+    font-size: 2rem;
+  }
+
+  .carta h2::after {
+    margin-top: 12px;
+
+    font-size: 1.1rem;
+  }
+
+  .carta h3 {
+    margin-top: 32px;
+
+    font-size: 1.1rem;
+  }
+
+  .carta p {
+    font-size: 1rem;
+
+    line-height: 1.8;
+  }
+
+  .carta p.frase-especial {
+    margin: 35px auto;
+
+    padding: 20px 15px;
+
+    font-size: 1.1rem;
+  }
+
+  /* ====================================================
+     PELÍCULAS EN CELULAR
+     ==================================================== */
+
+  .peliculas-lista {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
   }
 
   .pelicula {
-    gap: 14px;
-    padding: 14px;
-    border-radius: 11px;
+    min-height: 150px;
+
+    align-items: center;
   }
 
   .pelicula-foto {
-    width: 78px;
-    height: 112px;
-    min-width: 78px;
-    border-radius: 7px;
+    width: 100px;
+
+    height: 150px;
+
+    border-radius: 10px 0 0 10px;
+  }
+
+  .pelicula-foto img {
+    object-fit: cover;
+
+    object-position: center;
+  }
+
+  .pelicula-info {
+    padding: 15px;
   }
 
   .pelicula-info h3 {
     font-size: 1rem;
+
     line-height: 1.4;
+  }
+
+  /* ====================================================
+     CANCIONES EN CELULAR
+     ==================================================== */
+
+  .cancion {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    padding: 16px;
+  }
+
+  .cancion-info {
+    width: calc(100% - 68px);
+  }
+
+  .boton-spotify {
+    width: 100%;
+
+    margin-top: 5px;
+
+    text-align: center;
+  }
+
+  /* ====================================================
+     AUDIO EN CELULAR
+     ==================================================== */
+
+  .audio-contenido {
+    min-height: 85vh;
+
+    gap: 30px;
+  }
+
+  .audio-reproductor {
+    padding: 32px 18px;
+
+    border-radius: 20px;
+  }
+
+  .audio-reproductor audio {
+    height: 48px;
+  }
+
+  /* ====================================================
+     BOTÓN DE SONIDO EN CELULAR
+     ==================================================== */
+
+  .boton-sonido {
+    top: 15px;
+
+    right: 15px;
   }
 }
 
-/* =====================================================
-   CELULARES MUY PEQUEÑOS
-   ===================================================== */
+/* ======================================================
+   CELULARES PEQUEÑOS
+   ====================================================== */
 
 @media (max-width: 380px) {
+  .portada {
+    padding: 30px 14px 40px;
+  }
+
+  .portada-contenido {
+    padding: 60px 10px 30px;
+  }
+
+  .portada h1 {
+    font-size: 2.8rem;
+
+    letter-spacing: 3px;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+  .botones-portada button {
+    max-width: 100%;
+
+    padding: 12px 20px;
+  }
+
+  .video-fondo-portada {
+    margin-top: 20px;
+  }
+
+  /* ====================================================
+     CARTA PEQUEÑA
+     ==================================================== */
+
+  .carta {
+    padding: 45px 20px;
+  }
+
+  .carta::after {
+    inset: 10px;
+  }
+
+  .carta h2 {
+    font-size: 1.8rem;
+  }
+
+  .carta p {
+    font-size: 0.95rem;
+  }
+
+  .carta p.frase-especial {
+    padding: 18px 10px;
+
+    font-size: 1rem;
+  }
+
+  .te-amo-final {
+    font-size: 1.45rem;
+  }
+
+  /* ====================================================
+     PELÍCULAS PEQUEÑAS
+     ==================================================== */
+
   .pelicula {
-    gap: 11px;
-    padding: 12px;
+    min-height: 128px;
   }
 
   .pelicula-foto {
-    width: 68px;
-    height: 98px;
-    min-width: 68px;
+    width: 85px;
+
+    height: 128px;
+  }
+
+  .pelicula-info {
+    padding: 10px;
   }
 
   .pelicula-info h3 {
-    font-size: 0.94rem;
+    font-size: 0.9rem;
+
+    line-height: 1.35;
+  }
+
+  /* ====================================================
+     CANCIONES PEQUEÑAS
+     ==================================================== */
+
+  .cancion {
+    gap: 12px;
+  }
+
+  .cancion-icono {
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 1.2rem;
+  }
+
+  .cancion-info {
+    width: calc(100% - 54px);
+  }
+
+  /* ====================================================
+     AUDIO PEQUEÑO
+     ==================================================== */
+
+  .audio-reproductor {
+    padding: 28px 14px;
+  }
+
+  .audio-reproductor audio {
+    height: 46px;
   }
 }
-/* =====================================================
-   EFECTO AL TOCAR LOS BOTONES
-   ===================================================== */
 
-.boton-carta:active,
-.boton-peliculas:active,
-.volver-portada:active {
-  transform: scale(0.94);
-  background: linear-gradient(145deg, #3a3a3a, #111111);
-  border-color: rgba(180, 180, 180, 0.65);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.55),
-    inset 0 0 18px rgba(255, 255, 255, 0.05);
-  transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+/* ======================================================
+   REDUCIR ANIMACIONES
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
 }
 
-/* Pequeño destello al tocar */
-.boton-carta:active::after,
-.boton-peliculas:active::after,
-.volver-portada:active::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.08);
-  animation: destelloBoton 0.35s ease-out forwards;
-  pointer-events: none;
+/* ======================================================
+   QUITAR RECTÁNGULO CELESTE AL TOCAR BOTONES
+   ====================================================== */
+
+button,
+.boton-carta,
+.boton-peliculas,
+.boton-audio,
+.boton-canciones,
+.boton-sonido,
+.volver-portada {
+  -webkit-tap-highlight-color: transparent;
+
+  outline: none;
 }
 
-@keyframes destelloBoton {
-  from {
-    opacity: 0.9;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 0;
-    transform: scale(1.15);
-  }
+button:focus,
+button:focus-visible,
+.boton-carta:focus,
+.boton-peliculas:focus,
+.boton-audio:focus,
+.boton-canciones:focus,
+.boton-sonido:focus,
+.volver-portada:focus {
+  outline: none;
+
+  box-shadow: none;
+}
+/* ======================================================
+   CENTRAR Y BAJAR TODOS LOS BOTONES VOLVER
+   ====================================================== */
+
+.volver-portada {
+  display: block !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  margin-top: 70px !important;
+
+  text-align: center;
 }

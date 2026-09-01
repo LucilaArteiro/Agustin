@@ -4,143 +4,339 @@
 
 const botonCarta = document.querySelector('.boton-carta')
 const botonPeliculas = document.querySelector('.boton-peliculas')
+const botonAudio = document.querySelector('.boton-audio')
+const botonCanciones = document.querySelector('.boton-canciones')
 
 const botonesVolver = document.querySelectorAll('.volver-portada')
 
 const portada = document.querySelector('.portada')
 const cartaSeccion = document.querySelector('.carta-seccion')
 const peliculasSeccion = document.querySelector('.peliculas-seccion')
+const audioSeccion = document.querySelector('.audio-seccion')
+const cancionesSeccion = document.querySelector('.canciones-seccion')
+
+const videoPortada = document.querySelector('.video-fondo-portada')
+const botonSonido = document.querySelector('.boton-sonido')
 
 // ======================================================
-// AL CARGAR LA PÁGINA
+// AUDIO PERSONAL
 // ======================================================
 
-cartaSeccion.style.display = 'none'
-peliculasSeccion.style.display = 'none'
-
-portada.style.display = 'flex'
-portada.style.opacity = '1'
-portada.style.transform = 'none'
+const audioPersonal = document.querySelector('.audio-seccion audio')
 
 // ======================================================
-// FUNCIÓN PARA IR ARRIBA
+// ESTADO INICIAL
 // ======================================================
 
-function irArriba () {
-  window.scrollTo(0, 0)
+if (cartaSeccion) {
+  cartaSeccion.style.display = 'none'
+}
+
+if (peliculasSeccion) {
+  peliculasSeccion.style.display = 'none'
+}
+
+if (audioSeccion) {
+  audioSeccion.style.display = 'none'
+}
+
+if (cancionesSeccion) {
+  cancionesSeccion.style.display = 'none'
+}
+
+if (portada) {
+  portada.style.display = 'flex'
+  portada.style.opacity = '1'
+  portada.style.transform = 'none'
 }
 
 // ======================================================
-// ABRIR LA CARTA
+// ICONOS DEL BOTÓN DE SONIDO
 // ======================================================
 
-botonCarta.addEventListener('click', () => {
-  // Desactivamos los botones mientras ocurre la animación
-  botonCarta.disabled = true
-  botonPeliculas.disabled = true
+const iconoSonido = `
+<svg
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <path
+    d="M4 9V15H8L13 19V5L8 9H4Z"
+    fill="currentColor"
+  />
+  <path
+    d="M16 9.5C16.8 10.2 17.25 11.05 17.25 12C17.25 12.95 16.8 13.8 16 14.5"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+</svg>
+`
 
-  // Mostramos la carta
-  cartaSeccion.style.display = 'block'
-  cartaSeccion.style.opacity = '0'
-  cartaSeccion.style.transform = 'translateY(25px)'
+const iconoSilenciado = `
+<svg
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <path
+    d="M4 9V15H8L13 19V5L8 9H4Z"
+    fill="currentColor"
+  />
+  <path
+    d="M17 9L21 15"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M21 9L17 15"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+</svg>
+`
 
-  // Ocultamos la portada
+// ======================================================
+// VIDEO Y SONIDO
+// ======================================================
+
+if (videoPortada && botonSonido) {
+  // El video comienza sin sonido
+  videoPortada.muted = true
+
+  botonSonido.innerHTML = iconoSilenciado
+
+  botonSonido.setAttribute('aria-label', 'Activar sonido')
+
+  botonSonido.setAttribute('title', 'Activar sonido')
+
+  // Botón de sonido
+  botonSonido.addEventListener('click', () => {
+    videoPortada.muted = !videoPortada.muted
+
+    if (videoPortada.muted) {
+      botonSonido.innerHTML = iconoSilenciado
+
+      botonSonido.setAttribute('aria-label', 'Activar sonido')
+
+      botonSonido.setAttribute('title', 'Activar sonido')
+    } else {
+      botonSonido.innerHTML = iconoSonido
+
+      botonSonido.setAttribute('aria-label', 'Silenciar video')
+
+      botonSonido.setAttribute('title', 'Silenciar video')
+
+      videoPortada.play().catch(() => {})
+    }
+  })
+}
+
+// ======================================================
+// FUNCIONES
+// ======================================================
+
+function irArriba () {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  })
+}
+
+// ======================================================
+// DESACTIVAR BOTONES DE LA PORTADA
+// ======================================================
+
+function desactivarBotonesPortada () {
+  if (botonCarta) {
+    botonCarta.disabled = true
+  }
+
+  if (botonPeliculas) {
+    botonPeliculas.disabled = true
+  }
+
+  if (botonAudio) {
+    botonAudio.disabled = true
+  }
+
+  if (botonCanciones) {
+    botonCanciones.disabled = true
+  }
+
+  if (botonSonido) {
+    botonSonido.disabled = true
+  }
+}
+
+// ======================================================
+// ACTIVAR BOTONES DE LA PORTADA
+// ======================================================
+
+function activarBotonesPortada () {
+  if (botonCarta) {
+    botonCarta.disabled = false
+  }
+
+  if (botonPeliculas) {
+    botonPeliculas.disabled = false
+  }
+
+  if (botonAudio) {
+    botonAudio.disabled = false
+  }
+
+  if (botonCanciones) {
+    botonCanciones.disabled = false
+  }
+
+  if (botonSonido) {
+    botonSonido.disabled = false
+  }
+}
+
+// ======================================================
+// ABRIR SECCIONES
+// ======================================================
+
+function abrirSeccion (seccion) {
+  if (!seccion || !portada) {
+    return
+  }
+
+  desactivarBotonesPortada()
+
+  // Mostrar la sección
+  seccion.style.display = 'block'
+  seccion.style.opacity = '0'
+  seccion.style.transform = 'translateY(25px)'
+
+  // Ocultar portada
   portada.style.transition = 'opacity 0.9s ease'
   portada.style.opacity = '0'
 
   setTimeout(() => {
-    // Ocultamos completamente la portada
     portada.style.display = 'none'
 
-    // Mostramos la carta
-    cartaSeccion.style.transition = 'opacity 1.5s ease, transform 1.5s ease'
+    seccion.style.transition = 'opacity 1.5s ease, transform 1.5s ease'
 
-    cartaSeccion.style.opacity = '1'
-    cartaSeccion.style.transform = 'translateY(0)'
+    seccion.style.opacity = '1'
+    seccion.style.transform = 'translateY(0)'
 
-    // Subimos al comienzo de la carta
     irArriba()
   }, 900)
-})
+}
 
 // ======================================================
-// ABRIR PELÍCULAS
+// BOTÓN CARTA
 // ======================================================
 
-botonPeliculas.addEventListener('click', () => {
-  // Desactivamos los botones mientras ocurre la animación
-  botonCarta.disabled = true
-  botonPeliculas.disabled = true
-
-  // Mostramos películas
-  peliculasSeccion.style.display = 'block'
-  peliculasSeccion.style.opacity = '0'
-  peliculasSeccion.style.transform = 'translateY(25px)'
-
-  // Ocultamos la portada
-  portada.style.transition = 'opacity 0.9s ease'
-  portada.style.opacity = '0'
-
-  setTimeout(() => {
-    // Ocultamos completamente la portada
-    portada.style.display = 'none'
-
-    // Mostramos películas
-    peliculasSeccion.style.transition = 'opacity 1.5s ease, transform 1.5s ease'
-
-    peliculasSeccion.style.opacity = '1'
-    peliculasSeccion.style.transform = 'translateY(0)'
-
-    // Subimos al comienzo
-    irArriba()
-  }, 900)
-})
+if (botonCarta) {
+  botonCarta.addEventListener('click', () => {
+    abrirSeccion(cartaSeccion)
+  })
+}
 
 // ======================================================
-// BOTONES VOLVER
-// FUNCIONAN DESDE CARTA Y DESDE PELÍCULAS
+// BOTÓN PELÍCULAS
+// ======================================================
+
+if (botonPeliculas) {
+  botonPeliculas.addEventListener('click', () => {
+    abrirSeccion(peliculasSeccion)
+  })
+}
+
+// ======================================================
+// BOTÓN AUDIO
+// ======================================================
+
+if (botonAudio) {
+  botonAudio.addEventListener('click', () => {
+    abrirSeccion(audioSeccion)
+  })
+}
+
+// ======================================================
+// BOTÓN CANCIONES
+// ======================================================
+
+if (botonCanciones) {
+  botonCanciones.addEventListener('click', () => {
+    abrirSeccion(cancionesSeccion)
+  })
+}
+
+// ======================================================
+// BOTONES VOLVER A LA PORTADA
 // ======================================================
 
 botonesVolver.forEach(boton => {
   boton.addEventListener('click', () => {
-    // Buscamos la sección en la que está el botón
-    const carta = boton.closest('.carta-seccion')
-    const peliculas = boton.closest('.peliculas-seccion')
+    const seccionActual =
+      boton.closest('.carta-seccion') ||
+      boton.closest('.peliculas-seccion') ||
+      boton.closest('.audio-seccion') ||
+      boton.closest('.canciones-seccion')
 
-    const seccionActual = carta || peliculas
-
-    // Si no encontramos ninguna sección, no hacemos nada
-    if (!seccionActual) {
+    if (!seccionActual || !portada) {
       return
     }
 
-    // Animación de salida
+    // Si estaba reproduciendo el audio,
+    // lo detenemos al volver a la portada
+    if (seccionActual.classList.contains('audio-seccion') && audioPersonal) {
+      audioPersonal.pause()
+      audioPersonal.currentTime = 0
+    }
+
+    // Ocultar sección actual
     seccionActual.style.transition = 'opacity 0.8s ease, transform 0.8s ease'
 
     seccionActual.style.opacity = '0'
     seccionActual.style.transform = 'translateY(20px)'
 
     setTimeout(() => {
-      // Ocultamos la sección actual
       seccionActual.style.display = 'none'
 
-      // Volvemos a mostrar la portada
+      // Volver a mostrar portada
       portada.style.display = 'flex'
       portada.style.opacity = '0'
       portada.style.transform = 'none'
 
-      // Volvemos arriba
+      // Reiniciar video
+      if (videoPortada) {
+        videoPortada.play().catch(() => {})
+      }
+
+      // Volver arriba
       irArriba()
 
       setTimeout(() => {
-        // Mostramos la portada suavemente
         portada.style.transition = 'opacity 1s ease'
         portada.style.opacity = '1'
 
-        // Volvemos a activar los botones
-        botonCarta.disabled = false
-        botonPeliculas.disabled = false
+        activarBotonesPortada()
       }, 50)
     }, 800)
   })
 })
+
+// ======================================================
+// INICIAR VIDEO DE PORTADA
+// ======================================================
+
+if (videoPortada) {
+  videoPortada.muted = true
+
+  videoPortada.play().catch(() => {})
+}

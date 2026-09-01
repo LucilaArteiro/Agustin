@@ -6,33 +6,72 @@
     <title>Para Agustín 🖤</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <main>
-      <!-- =====================================================
-         PORTADA
-         ===================================================== -->
+      <!-- PORTADA -->
       <section class="portada">
+        <div class="portada-overlay"></div>
+
+        <!-- BOTÓN DE SONIDO -->
+        <button
+          class="boton-sonido"
+          id="botonSonido"
+          type="button"
+          aria-label="Activar sonido"
+          title="Activar sonido"
+        >
+          🔇
+        </button>
+
+        <!-- DECORACIÓN -->
         <div class="portada-decoracion superior"></div>
         <div class="portada-decoracion inferior"></div>
+
+        <!-- CONTENIDO DE LA PORTADA -->
         <div class="portada-contenido">
           <h1>AGUSTÍN</h1>
+
           <p class="subtitulo">Feliz cumpleaños, Amor mío</p>
+
+          <!-- VIDEO -->
+          <video
+            class="video-fondo-portada"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          >
+            <source src="videos/portada.mp4" type="video/mp4" />
+            Tu navegador no puede reproducir este video.
+          </video>
+
+          <!-- BOTONES -->
           <div class="botones-portada">
-            <button class="boton-carta">Para vos, mi vida 🖤</button>
-            <button class="boton-peliculas">Nuestras películas 🎬</button>
+            <button class="boton-carta" type="button">
+              Para vos, mi vida 🖤
+            </button>
+
+            <button class="boton-peliculas" type="button">
+              Nuestras películas 🎬
+            </button>
+
+            <button class="boton-audio" type="button">
+              Un Audio para vos 🎧
+            </button>
+
+            <button class="boton-canciones" type="button">
+              Canciones que te dedico ♪
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- =====================================================
-         SECCIÓN PELÍCULAS
-         ===================================================== -->
+      <!-- PELÍCULAS -->
       <section class="peliculas-seccion">
         <div class="peliculas-contenido">
-          <h2>Nuestras películas 🎬</h2>
-
           <div class="peliculas-lista">
-            <!-- PELÍCULA 1 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img
@@ -40,12 +79,12 @@
                   alt="Michael Jackson"
                 />
               </div>
+
               <div class="pelicula-info">
                 <h3>Michael Jackson</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 2 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img
@@ -53,62 +92,62 @@
                   alt="Hokum: La maldición de la bruja"
                 />
               </div>
+
               <div class="pelicula-info">
                 <h3>Hokum: La maldición de la bruja</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 3 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img src="imagenes/obsession.webp" alt="Obsession" />
               </div>
+
               <div class="pelicula-info">
                 <h3>Obsession</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 4 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img src="imagenes/backrooms.webp" alt="Backrooms" />
               </div>
+
               <div class="pelicula-info">
                 <h3>Backrooms</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 5 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img src="imagenes/scary movie.webp" alt="Scary Movie" />
               </div>
+
               <div class="pelicula-info">
                 <h3>Scary Movie</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 6 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img src="imagenes/toy story.webp" alt="Toy Story 5" />
               </div>
+
               <div class="pelicula-info">
                 <h3>Toy Story 5</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 7 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img src="imagenes/evil dead.webp" alt="Evil Dead" />
               </div>
+
               <div class="pelicula-info">
                 <h3>Evil Dead</h3>
               </div>
             </div>
 
-            <!-- PELÍCULA 8 -->
             <div class="pelicula">
               <div class="pelicula-foto">
                 <img
@@ -116,19 +155,144 @@
                   alt="El final de la calle Oak"
                 />
               </div>
+
               <div class="pelicula-info">
                 <h3>El final de la calle Oak</h3>
               </div>
             </div>
           </div>
 
-          <button class="boton-volver-carta volver-portada">Volver</button>
+          <button class="boton-volver-carta volver-portada" type="button">
+            Volver
+          </button>
         </div>
       </section>
 
-      <!-- =====================================================
-         CARTA
-         ===================================================== -->
+      <!-- AUDIO -->
+      <section class="audio-seccion">
+        <div class="audio-contenido">
+          <div class="audio-reproductor">
+            <audio controls preload="metadata">
+              <source src="audios/audio.ogg" type="audio/ogg" />
+              Tu navegador no puede reproducir este audio.
+            </audio>
+          </div>
+
+          <button class="boton-volver-carta volver-portada" type="button">
+            Volver
+          </button>
+        </div>
+      </section>
+
+      <!-- CANCIONES -->
+      <section class="canciones-seccion">
+        <div class="canciones-contenido">
+          <div class="canciones-lista">
+            <!-- NUNCA LO OLVIDES -->
+            <div class="cancion">
+              <div class="cancion-icono">♪</div>
+
+              <div class="cancion-info">
+                <h3>Nunca lo olvides</h3>
+
+                <p>Airbag</p>
+
+                <a
+                  class="boton-spotify"
+                  href="https://open.spotify.com/intl-es/track/1qAMb1y3o7Olwm8pYTuzyV?si=f1da89a4856a482e"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Escuchar en Spotify
+                </a>
+              </div>
+            </div>
+
+            <!-- VIVAMOS EL MOMENTO -->
+            <div class="cancion">
+              <div class="cancion-icono">♪</div>
+
+              <div class="cancion-info">
+                <h3>Vivamos el momento</h3>
+
+                <p>Airbag</p>
+
+                <a
+                  class="boton-spotify"
+                  href="https://open.spotify.com/intl-es/track/2PtcxLgOMJ8OGX8PFXsKOc?si=52317fda5a4c4587"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Escuchar en Spotify
+                </a>
+              </div>
+            </div>
+
+            <!-- CICATRICES -->
+            <div class="cancion">
+              <div class="cancion-icono">♪</div>
+
+              <div class="cancion-info">
+                <h3>Cicatrices</h3>
+
+                <p>Airbag</p>
+
+                <a
+                  class="boton-spotify"
+                  href="https://open.spotify.com/intl-es/track/23FJGRug9hlYUIBnrmkIBX?si=06a15989fcd04137"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Escuchar en Spotify
+                </a>
+              </div>
+            </div>
+
+            <!-- CÓMO TE MIRO A TI -->
+            <div class="cancion">
+              <div class="cancion-icono">♪</div>
+
+              <div class="cancion-info">
+                <h3>Cómo te miro a ti</h3>
+
+                <p>RV</p>
+
+                <a
+                  class="boton-spotify"
+                  href="https://open.spotify.com/intl-es/track/4UPJPqDMG0bttF3MFx5PsR?si=9a97e2a204344982"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Escuchar en Spotify
+                </a>
+              </div>
+            </div>
+
+            <!-- CAE EL SOL -->
+            <div class="cancion cancion-video">
+              <div class="cancion-icono">▶</div>
+
+              <div class="cancion-info">
+                <h3>Cae el sol</h3>
+
+                <p>Airbag</p>
+
+                <video class="video-cancion" controls preload="metadata">
+                  <source src="musica/cae-el-sol.mp4" type="video/mp4" />
+
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <button class="boton-volver-canciones volver-portada" type="button">
+            Volver
+          </button>
+        </div>
+      </section>
+
+      <!-- CARTA -->
       <section class="carta-seccion">
         <div class="carta">
           <p>Feliz cumpleaños, mi amor.</p>
@@ -155,10 +319,6 @@
             que aprendí desde que estoy con vos es que nunca falta una razón
             para reírme.
           </p>
-
-          <!-- =====================================================
-             CÓMO EMPEZÓ TODO
-             ===================================================== -->
 
           <h3>¿Te acordás de nuestra primera cita?</h3>
 
@@ -207,10 +367,6 @@
             debería.
           </p>
 
-          <!-- =====================================================
-             TU CARA DE CULO
-             ===================================================== -->
-
           <h3>Y después apareció tu forma de quererme.</h3>
 
           <p>
@@ -236,10 +392,6 @@
             Y creo que eso fue una de esas pequeñas cosas que hicieron que
             empezara a sentir que con vos podía ser diferente.
           </p>
-
-          <!-- =====================================================
-             PUEDO SER YO
-             ===================================================== -->
 
           <h3>Con vos puedo ser yo.</h3>
 
@@ -275,10 +427,6 @@
             persona para sentirme querida por vos.
           </p>
 
-          <!-- =====================================================
-             TUS ABRAZOS
-             ===================================================== -->
-
           <h3>Tus abrazos tienen algo especial.</h3>
 
           <p>
@@ -288,7 +436,7 @@
 
           <p>Me encanta que quieras verme y que quieras tenerme cerca.</p>
 
-          <p>Me encanta cuando me abrazás simplemente porque sí. 🫂</p>
+          <p>Me encanta cuando me abrazás simplemente porque sí.</p>
 
           <p>
             Quizás para vos sean gestos normales, pero para mí significan
@@ -307,10 +455,6 @@
             Porque tenerte cerca se convirtió en una de esas cosas que hacen que
             un día cualquiera se sienta mucho mejor.
           </p>
-
-          <!-- =====================================================
-             ORGULLO
-             ===================================================== -->
 
           <h3>Estoy orgullosa de vos.</h3>
 
@@ -335,10 +479,6 @@
             Ojalá vos también puedas ver todo lo bueno que hay en la persona que
             sos.
           </p>
-
-          <!-- =====================================================
-             CUMPLEAÑOS
-             ===================================================== -->
 
           <h3>Hoy deseo cosas lindas para vos.</h3>
 
@@ -366,10 +506,6 @@
             Quiero poder festejar tus logros, disfrutar tus alegrías y
             acompañarte también cuando las cosas no salgan como esperabas.
           </p>
-
-          <!-- =====================================================
-             ESTAR A TU LADO
-             ===================================================== -->
 
           <h3>Quiero ser un lugar donde puedas descansar.</h3>
 
@@ -412,10 +548,6 @@
 
           <p>Yo quiero acompañarte también en esos momentos.</p>
 
-          <!-- =====================================================
-             PERDÓN
-             ===================================================== -->
-
           <h3>También quiero pedirte perdón.</h3>
 
           <p>Por las veces que me enojo por tonterías.</p>
@@ -446,10 +578,6 @@
           <p>Quiero que podamos equivocarnos sin dejar de intentar mejorar.</p>
 
           <p>Porque para mí vale muchísimo la pena cuidar lo que tenemos.</p>
-
-          <!-- =====================================================
-             NUESTRA RELACIÓN
-             ===================================================== -->
 
           <h3>No quiero una relación perfecta.</h3>
 
@@ -482,10 +610,6 @@
             Quiero que sea real, nuestro y que podamos seguir construyéndolo
             entre los dos.
           </p>
-
-          <!-- =====================================================
-             FUTURO
-             ===================================================== -->
 
           <h3>Todavía nos queda muchísimo por vivir.</h3>
 
@@ -523,16 +647,9 @@
             Porque siento que todavía tenemos muchísimo por escribir juntos.
           </p>
 
-          <!-- =====================================================
-             CUÁNTO TE AMO
-             ===================================================== -->
-
           <h3>Si algún día dudás de lo que siento por vos...</h3>
 
-          <p>
-            Si alguna vez llegás a dudar de cuánto te amo, quiero que recuerdes
-            algo.
-          </p>
+          <p>Quiero que recuerdes algo.</p>
 
           <p>
             Recordá todas esas veces que me viste llorar porque sabía que iba a
@@ -568,10 +685,6 @@
             recordás, pero que yo fui guardando.
           </p>
 
-          <!-- =====================================================
-             GRACIAS
-             ===================================================== -->
-
           <h3>Gracias por formar parte de mi vida.</h3>
 
           <p>Gracias por elegirme.</p>
@@ -595,10 +708,6 @@
             Gracias por hacer que mi vida sea más linda desde que estás en ella.
           </p>
 
-          <!-- =====================================================
-             CÓMO LO VEO
-             ===================================================== -->
-
           <h3>Si pudieras verte como te veo yo...</h3>
 
           <p>
@@ -621,10 +730,6 @@
             No sé qué hice para encontrarte, pero sí sé que quiero cuidar esto
             que tenemos.
           </p>
-
-          <!-- =====================================================
-             MÁS DE NOSOTROS
-             ===================================================== -->
 
           <h3>Quiero seguir construyendo lo nuestro.</h3>
 
@@ -652,10 +757,7 @@
             motivos para elegirnos.
           </p>
 
-          <!-- =====================================================
-             FINAL
-             ===================================================== -->
-
+          <!-- FINAL DE LA CARTA -->
           <div class="final-carta">
             <p>
               Y después de todo esto, si tuviera que quedarme con una sola idea,
@@ -684,10 +786,7 @@
               favoritas.
             </p>
 
-            <!-- =====================================================
-               ÚLTIMO MENSAJE
-               ===================================================== -->
-
+            <!-- ÚLTIMO MENSAJE -->
             <div class="cumple-final">
               <p>Feliz cumpleaños, mi vida.</p>
 
@@ -723,21 +822,16 @@
               </p>
             </div>
 
-            <!-- =====================================================
-               BOTÓN VOLVER
-               ===================================================== -->
-
+            <!-- BOTÓN VOLVER -->
             <div class="volver-carta-contenedor">
-              <button class="boton-volver-carta volver-portada">Volver</button>
+              <button class="boton-volver-carta volver-portada" type="button">
+                Volver
+              </button>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <!-- =====================================================
-       JAVASCRIPT
-       ===================================================== -->
 
     <script src="script.js"></script>
   </body>
